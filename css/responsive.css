@@ -1,0 +1,96 @@
+/* =========================================================
+   FEAST MODE — short-landscape screens (phones turned sideways,
+   small laptop windows). Keeps the desktop compositions but
+   sizes type and scenes by screen HEIGHT so everything fits.
+   Loaded last so it overrides section files.
+   ========================================================= */
+@media (orientation: landscape) and (max-height: 540px) {
+  :root { --nav-h: 54px; --gutter: clamp(1rem, 3vw, 2rem); --section-top: calc(var(--nav-h) + .5rem); }
+  .nav__links { gap: 1.2rem; }
+  .nav__links a { font-size: .68rem; }
+  .btn { --pad-y: .55rem; --pad-x: 1.1rem; }
+  .btn__icon { width: 1.6rem; height: 1.6rem; }
+
+  /* every pinned scene is exactly one screen tall */
+  .hero, .chaos__stage, .lab__stage, .menu__stage, .fim__pin, .pers__pin, .final__pin { min-height: 0; height: 100svh; }
+
+  /* 01 hero */
+  .hero__inner { padding: var(--nav-h) var(--gutter) .5rem; }
+  .hero__kicker { margin-bottom: .5rem; }
+  .hero__title { font-size: 13svh; }
+  .hero__lead { margin: .7rem 0 1rem; font-size: .9rem; }
+  .stage { width: auto; height: 76svh; margin: 0 0 0 -4%; justify-self: center; }
+  .hero__meta { display: none; }
+
+  /* 02 chaos */
+  .chaos__type { width: min(94vw, 150svh); }
+  .chaos__we, .chaos__food { font-size: 11svh; }
+  .chaos__kicker { display: none; }
+  .chaos__type { translate: -50% -42%; }
+  .chaos__tag { font-size: .62rem; padding: .3rem .6rem; }
+
+  /* 03 lab */
+  .lab__copy { top: var(--section-top); }
+  .lab__title { font-size: 9svh; }
+  .lab__lead { font-size: .9rem; margin-top: .6rem; }
+  .lab__kicker { margin-bottom: .5rem; }
+  .lab__bowl { width: min(36vw, 64svh); bottom: 3%; }
+  .lab__meter b { font-size: 1.3rem; }
+
+  /* 04 menu */
+  .menu__stage { padding-top: var(--section-top); padding-bottom: .6rem; }
+  .menu__kicker { margin-bottom: .3rem; }
+  .menu__title { font-size: 7svh; }
+  .menu__arrow { width: 2.4rem; height: 2.4rem; }
+  .menu__count b { font-size: 1.3rem; }
+  .dish__media { height: 58svh; }
+  .dish__name { font-size: 7.5svh; }
+  .dish__desc { font-size: .85rem; margin: .5rem 0 .6rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .dish__price { font-size: 1.6rem; margin-bottom: .6rem; }
+  .dish-dialog { max-height: 94svh; }
+  .dish-dialog[open] { grid-template-columns: .8fr 1.2fr; }
+  .dish-dialog__media { min-height: 0; padding: 1rem; }
+  .dish-dialog__body { padding: 1.4rem; }
+
+  /* 05 flavour in motion */
+  .fim__title { font-size: 14svh; }
+  .fim__l1 { top: 25%; } .fim__l2 { top: 44%; }
+  .fim__splash { width: 56svh; }
+  .fim__vine { width: min(64vw, 120svh); }
+
+  /* 06 ritual */
+  .ritual__stage { min-height: 0; height: 125svh; }
+  .ritual__copy { top: 18%; padding: 1rem 1.4rem 1.2rem; }
+  .ritual__title { font-size: 9svh; }
+  .ritual__lead { font-size: .85rem; margin-top: .6rem; }
+
+  /* 07 personality */
+  .pers__kicker { top: var(--section-top); }
+  .posters { inset: calc(var(--section-top) + 1.6rem) var(--gutter) .6rem; }
+  .poster { border-radius: 18px; }
+  .poster__waves { border-radius: 0 0 18px 18px; }
+  .poster__text { font-size: 22svh; }
+  .poster__num { bottom: .6rem; left: 1rem; }
+  .pers__traveller { width: 20svh; }
+
+  /* 08 final */
+  .final__copy { top: 54%; }
+  .final__title { font-size: 15svh; }
+  .final__lead { margin: .6rem 0 1rem; font-size: .9rem; }
+  .final__plate { width: 58svh; }
+  .final__glass { width: 24svh; }
+  .final__glass--b { width: 19svh; }
+  .footer { padding-top: 2.5rem; }
+  .footer__mark { margin-top: 2rem; }
+}
+
+/* mid-size landscape (tablets, small laptops): give the chaos headline room under its label */
+@media (orientation: landscape) and (max-width: 1280px) and (min-height: 541px) {
+  .chaos__type { translate: -50% -38%; }
+}
+
+/* reduced motion on short landscape: stacked scenes still fit */
+@media (orientation: landscape) and (max-height: 540px) and (prefers-reduced-motion: reduce) {
+  .fim__scene { min-height: 0; height: 100svh; }
+  .poster { min-height: 0; height: 88svh; }
+}

@@ -1,0 +1,115 @@
+/* =========================================================
+   SECTION 01 — THE APPETITE OPENER
+   Reference 01: low-angle plated "crown" composition,
+   ink line-art (wire meshes + molecule), concentric rings,
+   mirror reflection. Translated onto cream.
+   ========================================================= */
+.hero {
+  position: relative;
+  height: 100svh; min-height: 640px;
+  overflow: clip;
+  isolation: isolate;
+}
+.hero__inner {
+  position: relative; height: 100%;
+  display: grid; grid-template-columns: minmax(0, 44fr) minmax(0, 56fr);
+  align-items: center;
+  padding: var(--nav-h) var(--gutter) 2.5rem;
+}
+
+/* ---------- copy ---------- */
+.hero__copy { position: relative; z-index: 3; align-self: center; }
+.hero__kicker { display: flex; align-items: center; gap: .75rem; margin: 0 0 1.4rem; color: var(--ink-60); }
+.hero__kicker .serif { font-size: 1.2rem; color: var(--ink); }
+.hero__kicker::before { content: ""; width: 2.5rem; height: 1.5px; background: var(--ink); }
+
+.hero__title {
+  margin: 0; font-family: var(--f-display); font-weight: 400;
+  font-size: var(--t-mega); line-height: .86; letter-spacing: -.01em;
+  /* allow the headline to bleed over the stage, editorial overlap */
+  width: max-content; max-width: 62vw;
+}
+.hero__title .line { display: block; overflow: clip; padding-bottom: .04em; }
+.hero__title .line > span { display: block; will-change: transform; }
+.hero__title .line--indent { padding-left: .55em; }
+.hero__title .amp { font-family: var(--f-serif); font-style: italic; font-size: .5em; vertical-align: .55em; margin-left: .1em; letter-spacing: 0; text-transform: none; }
+
+.hero__lead {
+  margin: 1.8rem 0 2.2rem;
+  font-size: var(--t-lead); line-height: 1.4;
+}
+.hero__lead > span { display: block; }
+.hero__lead em { font-family: var(--f-serif); font-size: 1.25em; }
+
+.hero__meta {
+  position: absolute; left: var(--gutter); right: var(--gutter); bottom: 1.6rem; z-index: 3;
+  display: flex; justify-content: space-between; align-items: end; pointer-events: none;
+}
+.hero__meta > * { pointer-events: auto; }
+.hero__scroll { display: inline-flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--ink); }
+.hero__scroll-dot {
+  width: 22px; height: 34px; border: 1.5px solid var(--ink); border-radius: 12px; position: relative;
+}
+.hero__scroll-dot::after {
+  content: ""; position: absolute; left: 50%; top: 7px; width: 4px; height: 7px; margin-left: -2px;
+  border-radius: 2px; background: var(--ink); animation: scrollDot 1.8s var(--ease-out) infinite;
+}
+@keyframes scrollDot { 0% { transform: translateY(0); opacity: 1 } 70% { transform: translateY(10px); opacity: 0 } 100% { opacity: 0 } }
+
+/* ---------- stage ---------- */
+.stage {
+  position: relative; z-index: 1;
+  width: 100%; aspect-ratio: 1 / .92;
+  margin-left: -6%;            /* composition leans under the headline */
+  align-self: center;
+}
+.stage > * { position: absolute; }
+.stage__lineart { inset: -6% -4% 30% -4%; width: 108%; height: 76%; overflow: visible; }
+.stage__lineart path, .stage__lineart line, .stage__lineart circle, .stage__lineart ellipse {
+  fill: none; stroke: var(--ink); stroke-width: 1.4;
+}
+.stage__lineart .node { fill: var(--cream); stroke-width: 1.2; }
+.stage__lineart .mesh { stroke-opacity: .32; }
+.stage__lineart .mol { stroke-opacity: .7; }
+
+.stage__ribbon { inset: 6% -18% 22% -14%; width: 132%; height: 72%; overflow: visible; z-index: 0; }
+.stage__rings { left: -12%; width: 124%; top: 60%; height: 32%; overflow: visible; }
+.stage__rings ellipse { fill: none; stroke: var(--ink); stroke-width: 1; vector-effect: non-scaling-stroke; }
+
+.plate { left: 4%; width: 92%; top: 30%; z-index: 2; transform-origin: 50% 70%; }
+.plate img { width: 100%; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.plate__reflection {
+  position: absolute; left: 0; right: 0; top: 100%; margin-top: -14%;
+  opacity: .16;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 45%);
+          mask-image: linear-gradient(to top, #000 0%, transparent 45%);
+}
+
+/* floating ingredients: 3 nested layers so scroll / pointer / ambient
+   transforms never fight each other */
+.ing { z-index: 3; left: var(--x); top: var(--y); width: var(--w); }
+.ing--back { z-index: 1; }
+.ing__p, .ing img { width: 100%; }
+.ing img { scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px) and (max-aspect-ratio: 4/5) {
+  .hero__inner { grid-template-columns: 1fr; grid-template-rows: auto 1fr; align-items: start; padding-top: var(--section-top); }
+  .hero__title { max-width: none; width: auto; }
+  .stage { margin: -4% auto 0; width: min(100%, 720px); }
+  .hero__lead { margin: 1.2rem 0 1.6rem; }
+}
+@media (max-width: 760px) {
+  .hero { height: auto; min-height: 100svh; }
+  .hero__inner { padding-bottom: 5rem; }
+  .hero__title { font-size: clamp(3rem, 15.5vw, 5.4rem); }
+  .stage { width: 112%; margin: 0 -6%; }
+  .ing--sm-hide { display: none; }
+  .hero__meta .label:last-child { display: none; }
+}
+
+/* ---------- reduced motion: static composed frame ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-dot::after { animation: none; }
+}

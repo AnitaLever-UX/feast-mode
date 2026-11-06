@@ -1,0 +1,94 @@
+/* =========================================================
+   SECTION 06 — THE FEAST MODE RITUAL
+   Reference 06: overhead table, striped runner on the
+   diagonal, guava-pink plates & bowls, mustard napkins with
+   gold cutlery, fern fronds, citrus, cocktails with salt rims.
+   Cream replaces the wood; calm, unpinned choreography.
+   ========================================================= */
+.ritual { position: relative; }
+.ritual__stage { position: relative; height: 110svh; min-height: 760px; overflow: clip; isolation: isolate; }
+
+.ritual__copy {
+  position: absolute; z-index: 4; left: var(--gutter); top: 27%; max-width: 46rem;
+  /* a place card set on the table keeps the type readable over the runner */
+  padding: 2rem 2.6rem 2.2rem; background: var(--cream); border-radius: 6px; rotate: -1.5deg;
+  box-shadow: 0 1px 0 rgba(41,41,35,.06), 0 24px 40px -14px rgba(41,41,35,.28), inset 0 0 0 1px rgba(41,41,35,.08);
+}
+.ritual__kicker { display: flex; align-items: center; gap: .75rem; margin: 0 0 1.1rem; color: var(--ink-60); }
+.ritual__kicker .serif { font-size: 1.2rem; color: var(--ink); }
+.ritual__kicker::before { content: ""; width: 2.5rem; height: 1.5px; background: var(--ink); }
+.ritual__title { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(2.2rem, 4.3vw, 4.8rem); line-height: .95; white-space: nowrap; }
+.ritual__title .line { display: block; overflow: clip; padding-bottom: .05em; }
+.ritual__title .line > span { display: block; }
+.ritual__title i { font-size: .42em; vertical-align: .9em; margin-right: .25em; color: var(--ink-60); }
+.ritual__lead { margin: 1.2rem 0 0; max-width: 34ch; font-size: var(--t-lead); }
+
+/* ---------- the table ---------- */
+.ritual__table { position: absolute; inset: 0; z-index: 1; }
+.runner {
+  position: absolute; left: -20%; top: 40%; width: 140%; height: 24%; rotate: -14deg;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 22px, rgba(41,41,35,.55) 22px 24px, transparent 24px 46px),
+    #FFFDF8;
+  -webkit-mask-image: repeating-linear-gradient(0deg, #000 0 3px, rgba(0,0,0,.82) 3px 6px);
+          mask-image: repeating-linear-gradient(0deg, #000 0 3px, rgba(0,0,0,.82) 3px 6px);
+  box-shadow: 0 10px 30px rgba(41,41,35,.08);
+  opacity: .9;
+}
+.obj { position: absolute; left: var(--x); top: var(--y); width: var(--w); rotate: var(--r, 0deg); }
+img.obj { scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.obj--bowl { z-index: 2; }
+.obj--plates { z-index: 2; }
+.obj--cutlery { z-index: 3; }
+.steam-host { z-index: 3; height: var(--h); pointer-events: none; }
+
+/* glasses seen from directly above: rim, base ring, liquid that fills */
+.glass { aspect-ratio: 1; border-radius: 50%; z-index: 3;
+  background: radial-gradient(circle, rgba(255,255,255,.35) 0 54%, rgba(255,255,255,.8) 55% 57%, rgba(255,255,255,.25) 58% 92%, rgba(255,255,255,.95) 94% 97%, transparent 98%);
+  box-shadow: 0 16px 22px -6px rgba(41,41,35,.22), inset 0 0 0 1.5px rgba(41,41,35,.12);
+}
+.glass__liquid { position: absolute; inset: 9%; border-radius: 50%; }
+.glass--water .glass__liquid { background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.9), rgba(200,226,232,.45) 45%, rgba(160,200,210,.35)); }
+.glass--cocktail {
+  /* salt rim */
+  background:
+    radial-gradient(circle, rgba(255,255,255,.3) 0 84%, #F4EFE6 85% 96%, transparent 97%);
+}
+.glass--cocktail::before { /* salt crystals on the rim */
+  content: ""; position: absolute; inset: 1.5%; border-radius: 50%;
+  background: repeating-conic-gradient(rgba(41,41,35,.22) 0 1.5deg, transparent 1.5deg 5deg, rgba(41,41,35,.1) 5deg 6deg, transparent 6deg 11deg);
+  -webkit-mask: radial-gradient(circle, transparent 0 86%, #000 87% 97%, transparent 98%);
+          mask: radial-gradient(circle, transparent 0 86%, #000 87% 97%, transparent 98%);
+}
+.glass--cocktail .glass__liquid {
+  inset: 12%;
+  background: radial-gradient(circle at 34% 30%, #FFE3D6 0 8%, #F6A58C 30%, #EE8C6E 70%, #E07A5C);
+  box-shadow: inset 0 0 0 3px rgba(255,255,255,.35);
+}
+.glass__flower {
+  position: absolute; left: 50%; top: 50%; width: 30%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%;
+  background: radial-gradient(circle, #C98A12 0 22%, var(--yolk) 24% 100%);
+  -webkit-mask: radial-gradient(circle, #000 0 30%, transparent 31%), repeating-conic-gradient(#000 0 18deg, transparent 18deg 30deg);
+          mask: radial-gradient(circle, #000 0 30%, transparent 31%), repeating-conic-gradient(#000 0 18deg, transparent 18deg 30deg);
+}
+.salt { aspect-ratio: 1; border-radius: 50%; background: #2C2C27; box-shadow: 0 14px 18px -6px rgba(41,41,35,.35); }
+.salt::after {
+  content: ""; position: absolute; inset: 12%; border-radius: 50%;
+  background:
+    radial-gradient(rgba(41,41,35,.22) .7px, transparent 1.3px) 0 0 / 5px 5px,
+    radial-gradient(rgba(41,41,35,.12) .7px, transparent 1.3px) 2px 3px / 7px 7px,
+    radial-gradient(circle at 40% 35%, #fff, #EAE6DC 80%);
+}
+.ritual__flecks { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.fleck { position: absolute; left: var(--x); top: var(--y); width: var(--s); height: calc(var(--s) * .55); border-radius: 50% 0; background: var(--herb); opacity: .75; rotate: var(--r); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) and (orientation: portrait) {
+  .ritual__stage { height: auto; min-height: 0; }
+  .ritual__copy { position: relative; left: auto; top: auto; margin: var(--section-top) var(--gutter) 0; padding: 1.4rem 1.4rem 1.6rem; }
+  .ritual__title { font-size: clamp(1.6rem, 7.6vw, 3rem); }
+  .ritual__table { position: relative; height: 125vw; max-height: 820px; }
+  .ritual__table .obj { width: calc(var(--w) * 1.7); }
+  .glass--sm-hide, .glass--water { display: none; }
+  .runner { top: 38%; height: 20%; }
+}

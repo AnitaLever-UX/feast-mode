@@ -1,0 +1,103 @@
+/* =========================================================
+   SECTION 08 — THE FINAL BITE  (+ footer)
+   Reference 08: overhead closing shot — white bowl on white
+   plate, creamy tomato pasta, a gold fork lifting a bite,
+   gold knife, scalloped placemat with piping on linen,
+   spritz glasses, flowers, warm hard sunlight.
+   ========================================================= */
+.final { position: relative; }
+.final__pin { position: relative; height: 100svh; min-height: 680px; overflow: clip; isolation: isolate; }
+.final__scene { position: absolute; inset: 0; transform-origin: 62% 52%; }
+.final__scene > * { position: absolute; }
+
+/* linen + light */
+.final__linen {
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, rgba(41,41,35,.025) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(41,41,35,.025) 0 1px, transparent 1px 4px),
+    #F1E8D5;
+}
+.final__light {
+  inset: 0; pointer-events: none;
+  background:
+    radial-gradient(60% 50% at 85% 10%, rgba(255,240,200,0), rgba(255,240,200,0) 60%),
+    linear-gradient(118deg, rgba(41,41,35,.10) 0 8%, transparent 22% 70%, rgba(41,41,35,.07) 92%);
+}
+
+/* placemat: SVG drawn in JS (scalloped edge + cream piping) */
+.final__mat { left: 34%; top: 9%; width: 60%; height: auto; overflow: visible; }
+
+/* plate + bowl drawn as white ceramic; the pasta is a cutout inside */
+.final__plate {
+  left: 47.5%; top: 21%; width: min(31vw, 58vh); aspect-ratio: 1; border-radius: 50%;
+  background: radial-gradient(circle at 42% 38%, #FFFFFF 0 55%, #F3F1EC 70%, #E6E2D9 100%);
+  box-shadow: 0 30px 40px -16px rgba(41,41,35,.35), inset 0 0 0 1px rgba(41,41,35,.06), inset -10px -14px 24px rgba(41,41,35,.07);
+  display: grid; place-items: center;
+}
+.final__bowl {
+  width: 74%; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center;
+  background: radial-gradient(circle at 60% 64%, #FFFFFF 0 40%, #EFECE5 66%, #FBFAF7 72%, #E8E4DB 100%);
+  box-shadow: 0 12px 18px -6px rgba(41,41,35,.25), inset 0 0 0 1px rgba(41,41,35,.05);
+}
+.final__bowl img { width: 74%; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.final__knife { left: 82%; top: 26%; height: 52%; width: auto; rotate: 4deg; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.final__glass { width: min(14vw, 26vh); aspect-ratio: 1; border-radius: 50%;
+  box-shadow: 0 24px 26px -12px rgba(158,60,20,.35), inset 0 0 0 3px rgba(255,255,255,.85), inset 0 0 0 5px rgba(41,41,35,.06); }
+.final__glass img { width: 100%; border-radius: 50%; }
+.final__glass--a { left: 72%; top: -8%; }
+.final__glass--b { left: 38%; top: -12%; width: min(11vw, 20vh); }
+.final__posy { left: 88%; top: -2%; width: 13%; rotate: -20deg; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.final__steam { left: 50%; top: 4%; width: 26%; height: 40%; pointer-events: none; }
+.final__fork { left: 41%; top: 44%; width: min(17vw, 30vh); transform-origin: 30% 20%;
+  scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+
+/* copy */
+.final__copy { position: absolute; z-index: 5; left: var(--gutter); top: 50%; translate: 0 -46%; }
+.final__kicker { display: flex; align-items: center; gap: .75rem; margin: 0 0 1.1rem; color: var(--ink-60); }
+.final__kicker .serif { font-size: 1.2rem; color: var(--ink); }
+.final__kicker::before { content: ""; width: 2.5rem; height: 1.5px; background: var(--ink); }
+.final__title { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(3rem, min(6vw, 11svh), 8rem); line-height: .86; width: max-content; }
+.final__title .line { display: block; overflow: clip; padding-bottom: .04em; }
+.final__title .line > span { display: block; }
+.final__lead { margin: 1.4rem 0 2rem; font-size: var(--t-lead); max-width: 28ch; }
+.final__lead em { font-family: var(--f-serif); font-size: 1.25em; }
+
+/* ---------- footer ---------- */
+.footer { background: var(--ink); color: var(--cream); padding: 4.5rem var(--gutter) 1.6rem; overflow: clip; }
+.footer a { color: inherit; }
+.footer__top { display: grid; grid-template-columns: 1.6fr 1fr 1fr auto; gap: 2.5rem; align-items: start; }
+.footer__tag { margin: 0; font-size: var(--t-lead); max-width: 26ch; color: rgba(247,238,219,.75); }
+.footer__tag .serif { display: block; font-size: 2.2rem; line-height: 1.05; color: var(--cream); margin-bottom: .5rem; }
+.footer__col h3 { margin: 0 0 1rem; color: rgba(247,238,219,.55); }
+.footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .55rem; }
+.footer__col a { text-decoration: none; font-weight: 500; font-size: 1.05rem; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1.5px no-repeat; transition: background-size .35s var(--ease-out); }
+.footer__col a:hover { background-size: 100% 1.5px; }
+.footer :focus-visible { outline-color: var(--cream); }
+.footer__mark {
+  margin: 3.5rem 0 1.2rem; font-family: var(--f-display); font-size: 12.6vw; line-height: .8; letter-spacing: -.02em;
+  white-space: nowrap; text-align: center;
+}
+.fm-l { display: inline-block; }
+.fm-sp { width: .28em; }
+.footer__mark sup { font-family: var(--f-body); font-size: .16em; vertical-align: 3.6em; margin-left: .05em; }
+.footer__legal { display: flex; justify-content: space-between; gap: 1rem; margin: 0; padding-top: 1.2rem; border-top: 1px solid rgba(247,238,219,.18); font-size: .85rem; color: rgba(247,238,219,.6); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) and (orientation: portrait) {
+  .final__pin { min-height: 760px; }
+  .final__copy { top: var(--section-top); translate: none; right: var(--gutter); }
+  .final__title { font-size: clamp(3rem, 16vw, 5rem); }
+  .final__lead { margin: .8rem 0 1.2rem; }
+  .final__scene { top: 47%; transform-origin: 50% 40%; }
+  .final__mat { left: 2%; top: 4%; width: 96%; }
+  .final__plate { left: 18%; top: 10%; width: 64vw; }
+  .final__fork { left: 6%; top: 40%; width: 34vw; }
+  .final__knife { left: 86%; top: 12%; height: 36%; }
+  .final__glass--a { left: 74%; top: 72%; width: 24vw; }
+  .final__glass--b, .final__posy { display: none; }
+  .final__steam { left: 24%; top: -8%; width: 52%; }
+  .footer__top { grid-template-columns: 1fr 1fr; }
+  .footer__tag, .footer__top-btn { grid-column: 1 / -1; justify-self: start; }
+  .footer__legal { flex-direction: column; }
+}

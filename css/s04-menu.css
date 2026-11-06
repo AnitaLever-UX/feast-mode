@@ -1,0 +1,129 @@
+/* =========================================================
+   SECTION 04 — THE MOVING MENU
+   Reference 04: overhead table, each dish in a different
+   vessel (dark stoneware, clear glass, gold rim, acrylic),
+   gold cutlery, dry-ice fog weaving between plates.
+   Translated into a pinned horizontal track on cream.
+   ========================================================= */
+.menu { position: relative; }
+.menu__stage {
+  position: relative; height: 100svh; min-height: 680px; overflow: clip; isolation: isolate;
+  display: grid; grid-template-rows: auto 1fr auto; grid-template-columns: minmax(0, 1fr);
+  padding: var(--section-top) 0 1.6rem;
+}
+
+/* ---------- header ---------- */
+.menu__head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding: 0 var(--gutter); position: relative; z-index: 4; }
+.menu__kicker { display: flex; align-items: center; gap: .75rem; margin: 0 0 1rem; color: var(--ink-60); }
+.menu__kicker .serif { font-size: 1.2rem; color: var(--ink); }
+.menu__kicker::before { content: ""; width: 2.5rem; height: 1.5px; background: var(--ink); }
+.menu__title { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(2rem, 3.8vw, 4.2rem); line-height: .92; }
+.menu__controls { display: flex; align-items: center; gap: .75rem; }
+.menu__count { margin: 0 1rem 0 0; display: flex; align-items: baseline; gap: .4rem; }
+.menu__count b { font-family: var(--f-display); font-weight: 400; font-size: 1.8rem; }
+.menu__count .serif { font-size: 1.1rem; color: var(--ink-60); }
+.menu__arrow {
+  width: 3rem; height: 3rem; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+  border: 1.5px solid var(--ink); background: transparent; color: var(--ink);
+  transition: background-color .2s, color .2s, border-color .2s, transform .3s var(--ease-out);
+}
+.menu__arrow:hover:not(:disabled) { background: var(--tomato); border-color: var(--tomato); color: var(--cream); transform: scale(1.06); }
+.menu__arrow:disabled { opacity: .3; cursor: default; }
+
+/* ---------- track ---------- */
+.menu__viewport { position: relative; z-index: 2; min-height: 0; min-width: 0; overflow: visible; }
+.menu__track {
+  list-style: none; margin: 0; padding: 0 var(--gutter);
+  height: 100%; display: flex; align-items: center; gap: 4vw; width: max-content;
+}
+.dish {
+  width: 76vw; max-width: 1180px; height: 100%;
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); align-items: center; gap: 3vw;
+}
+.dish__media { position: relative; height: min(60vh, 40vw); aspect-ratio: 1; justify-self: center; }
+.dish__plate { position: absolute; inset: 0; display: grid; place-items: center; }
+.dish__plate img { width: 100%; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+/* clear vessels, drawn as real glass on the cream table */
+.dish__plate--glass::before {
+  content: ""; position: absolute; inset: -3%; border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.18) 0 62%, rgba(255,255,255,.55) 63%, rgba(255,255,255,.12) 70%, rgba(255,255,255,.6) 99%, transparent 100%);
+  box-shadow: 0 30px 40px -18px rgba(41,41,35,.28), inset 0 0 0 1.5px rgba(255,255,255,.9), inset 0 0 0 2.5px rgba(41,41,35,.08);
+}
+.dish__plate--glass img { width: 86%; }
+.dish__plate--acrylic::before {
+  content: ""; position: absolute; inset: 1% 4%; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255,255,255,.55), rgba(255,255,255,.12) 40%, rgba(255,255,255,.4));
+  box-shadow: 0 30px 40px -18px rgba(41,41,35,.3), inset 0 0 0 2px rgba(255,255,255,.95), inset 0 0 0 3.5px rgba(41,41,35,.1), inset 8px 8px 0 -6px rgba(255,255,255,.7);
+}
+.dish__plate--acrylic img { width: 80%; }
+.dish__cutlery { position: absolute; width: 34%; right: -16%; bottom: -4%; rotate: 18deg; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.dish__garnish { position: absolute; width: 14%; left: -8%; top: 4%; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+
+.dish__info { max-width: 30rem; }
+.dish__num { margin: 0 0 .6rem; font-weight: 700; letter-spacing: .14em; font-size: .8rem; }
+.dish__num .serif { font-size: 1.1rem; }
+.dish__name { margin: 0; font-family: var(--f-display); font-weight: 400; font-size: clamp(1.9rem, 3.3vw, 3.6rem); line-height: .95; }
+.dish__desc { margin: 1rem 0 1.2rem; font-size: var(--t-lead); line-height: 1.45; color: rgba(41,41,35,.85); }
+.dish__price { margin: 0 0 1.5rem; font-family: var(--f-serif); font-style: italic; font-size: 2.4rem; line-height: 1; }
+
+.menu__progress { margin: 0 var(--gutter); height: 2px; background: var(--ink-12); position: relative; z-index: 4; }
+.menu__progress span { position: absolute; inset: 0; background: var(--ink); transform-origin: left; transform: scaleX(.25); }
+
+/* ---------- fog ---------- */
+.menu__fog { position: absolute; inset: -10% -20%; z-index: 1; pointer-events: none; }
+.fog {
+  position: absolute; left: var(--x); top: var(--y); width: var(--w); aspect-ratio: 2.2;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255,255,255,.95), rgba(255,255,255,.45) 55%, rgba(255,255,255,0));
+}
+
+/* ---------- dish detail dialog ---------- */
+.dish-dialog {
+  width: min(960px, 92vw); max-height: 90svh; padding: 0; border: 0; border-radius: 28px;
+  background: var(--cream); color: var(--ink);
+  box-shadow: 0 40px 80px rgba(41,41,35,.3);
+}
+.dish-dialog[open] { display: grid; grid-template-columns: 1fr 1fr; animation: ddIn .45s var(--ease-out); }
+.dish-dialog::backdrop { background: rgba(41,41,35,.55); backdrop-filter: blur(4px); }
+@keyframes ddIn { from { opacity: 0; transform: translateY(24px) scale(.97); } }
+.dish-dialog__media { position: relative; background: #EFE3CA; display: grid; place-items: center; padding: 2.5rem; min-height: 320px; }
+.dish-dialog__media .dish__plate { position: relative; inset: auto; width: 100%; aspect-ratio: 1; }
+.dish-dialog__body { padding: 3rem 2.5rem 2.5rem; overflow: auto; }
+.dish-dialog__body h4 { margin: 0 0 .6rem; }
+.dish-dialog__list { margin: 0 0 1.6rem; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; }
+.dish-dialog__list li { border: 1.5px solid var(--ink); border-radius: 999px; padding: .3rem .8rem; font-size: .85rem; }
+.dish-dialog__facts { display: grid; grid-template-columns: repeat(3, auto); gap: 1.5rem; margin: 0; }
+.dish-dialog__facts dd { margin: .3rem 0 0; font-weight: 500; }
+.dish-dialog__close {
+  position: absolute; top: 1rem; right: 1rem; z-index: 2; cursor: pointer;
+  background: var(--tomato); color: var(--cream); border: 0; border-radius: 999px; padding: .6rem 1.1rem;
+  font: 700 .75rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 900px) and (orientation: portrait) {
+  .menu__head { flex-direction: column; align-items: start; gap: 1rem; }
+  .dish { width: 84vw; grid-template-columns: 1fr; grid-template-rows: auto auto; align-content: center; gap: 1.2rem; }
+  .dish__media { height: min(30vh, 62vw); }
+  .menu__stage { padding-bottom: 1rem; }
+  .menu__title { font-size: clamp(1.7rem, 7vw, 2.4rem); }
+  .menu__kicker { margin-bottom: .6rem; }
+  .menu__arrow { width: 2.6rem; height: 2.6rem; }
+  .dish__name { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .dish__desc { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .dish__cta { --pad-y: .8rem; }
+  .dish__desc { font-size: 1rem; margin: .6rem 0 .8rem; }
+  .dish__price { font-size: 1.8rem; margin-bottom: 1rem; }
+  .dish-dialog[open] { grid-template-columns: 1fr; }
+  .dish-dialog__media { min-height: 0; padding: 1.5rem; }
+  .dish-dialog__media .dish__plate { width: 60%; margin: 0 auto; }
+  .dish-dialog__body { padding: 1.5rem; }
+  .dish-dialog__facts { grid-template-columns: 1fr 1fr; }
+}
+
+/* reduced motion: native horizontal scroll with snap, no pin */
+@media (prefers-reduced-motion: reduce) {
+  .menu__viewport { overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; }
+  .dish { scroll-snap-align: center; }
+  .dish-dialog[open] { animation: none; }
+}

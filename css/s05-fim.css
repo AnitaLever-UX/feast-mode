@@ -1,0 +1,64 @@
+/* =========================================================
+   SECTION 05 — FLAVOUR IN MOTION
+   Reference 05: a crown of glossy tomato sauce erupting,
+   glowing droplets, vine tomatoes + basil piled at the base.
+   On cream: splash → sauce floods the screen → an organic
+   hole tears open to reveal the dish.
+   ========================================================= */
+.fim { position: relative; }
+.fim__pin { position: relative; height: 100svh; min-height: 640px; overflow: clip; isolation: isolate; }
+.fim__scene { position: absolute; inset: 0; }
+.fim__scene > * { position: absolute; }
+
+.fim__kicker { left: var(--gutter); top: var(--section-top); margin: 0; display: flex; align-items: center; gap: .75rem; color: var(--ink-60); z-index: 3; }
+.fim__kicker .serif { font-size: 1.2rem; color: var(--ink); }
+.fim__kicker::before { content: ""; width: 2.5rem; height: 1.5px; background: var(--ink); }
+
+/* headline: line 1 top-left, line 2 bottom-right, splash erupts between */
+.fim__title {
+  position: absolute; inset: 0; margin: 0; z-index: 1; pointer-events: none;
+  font-family: var(--f-display); font-weight: 400; font-size: clamp(2.6rem, 8.2vw, 9.4rem); line-height: .9; text-transform: uppercase;
+}
+.fim__l1, .fim__l2 { position: absolute; white-space: nowrap; }
+.fim__l1 { left: var(--gutter); top: 22%; }
+.fim__l2 { right: var(--gutter); top: 44%; }
+.fim__title--cream { color: var(--cream); z-index: 5; clip-path: url(#floodClip); }
+
+.fim__splash { left: 50%; bottom: 13%; width: min(40vw, 62vh); translate: -50% 0; z-index: 2; transform-origin: 50% 95%;
+  filter: drop-shadow(0 20px 24px rgba(158,36,16,.25)); }
+.fim__vine { left: 50%; bottom: -1%; width: min(64vw, 980px); translate: -50% 0; z-index: 3;
+  filter: drop-shadow(0 16px 18px rgba(41,41,35,.22)); }
+.fim__drops { inset: 0; z-index: 3; pointer-events: none; }
+.sdrop {
+  position: absolute; left: var(--x); top: var(--y); width: var(--s); height: calc(var(--s) * 1.15); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle at 35% 30%, #FF9C7A 0 12%, var(--sauce-mid) 45%, var(--sauce-deep));
+  box-shadow: 0 4px 8px rgba(158,36,16,.25);
+}
+
+.fim__flood { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 4; pointer-events: none; overflow: visible; }
+
+.fim__reveal { position: absolute; inset: 0; margin: 0; z-index: 6; clip-path: inset(50%); }
+.fim__reveal img { width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; }
+.fim__caption {
+  position: absolute; left: var(--gutter); bottom: 1.8rem; display: flex; align-items: baseline; gap: .8rem; flex-wrap: wrap;
+  background: var(--cream); padding: .7rem 1.1rem; border-radius: 999px;
+}
+.fim__caption .serif { font-size: 1.15rem; }
+
+@media (max-width: 760px) {
+  .fim__title { font-size: clamp(2.2rem, 11.5vw, 3.6rem); }
+  .fim__l1, .fim__l2 { white-space: normal; left: var(--gutter); right: var(--gutter); }
+  .fim__l1 { top: 18%; } .fim__l2 { top: 33%; text-align: right; }
+  .fim__splash { width: 82vw; bottom: 14%; }
+  .fim__vine { width: 120vw; }
+  .fim__reveal img { object-position: 62% 50%; }
+  .fim__caption { right: var(--gutter); border-radius: 18px; }
+}
+
+/* reduced motion: splash scene, then the reveal as a still image below */
+@media (prefers-reduced-motion: reduce) {
+  .fim__pin { height: auto; min-height: 0; }
+  .fim__scene { position: relative; height: 100svh; min-height: 640px; }
+  .fim__flood, .fim__title--cream { display: none; }
+  .fim__reveal { position: relative; clip-path: none; height: 85svh; }
+}

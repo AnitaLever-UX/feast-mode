@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FEAST MODE® — Turn Your Appetite Up.</title>
+<meta name="description" content="FEAST MODE — food for the curious, flavour for the fearless.">
+<meta name="theme-color" content="#F7EEDB">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FEAST MODE® — Turn Your Appetite Up.">
+<meta property="og:description" content="Food for the curious. Flavour for the fearless.">
+<meta property="og:image" content="/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/s01/plate.webp" fetchpriority="high">
+<link rel="stylesheet" href="css/system.css">
+<link rel="stylesheet" href="css/s01-hero.css">
+<link rel="stylesheet" href="css/s02-chaos.css">
+<link rel="stylesheet" href="css/s03-lab.css">
+<link rel="stylesheet" href="css/s04-menu.css">
+<link rel="stylesheet" href="css/s05-fim.css">
+<link rel="stylesheet" href="css/s06-ritual.css">
+<link rel="stylesheet" href="css/s07-pers.css">
+<link rel="stylesheet" href="css/s08-final.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ================= GLOBAL NAV ================= -->
+<header class="nav" id="nav">
+  <a class="nav__brand" href="#top" aria-label="FEAST MODE home">FEAST MODE<sup>®</sup></a>
+  <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+  <nav aria-label="Primary">
+    <ul class="nav__links" id="nav-links">
+      <!-- links auto-hide until their section exists, so nothing is dead -->
+      <li><a href="#lab" data-nav="lab">The Lab</a></li>
+      <li><a href="#menu" data-nav="menu">Menu</a></li>
+      <li><a href="#ritual" data-nav="ritual">Ritual</a></li>
+      <li><a href="#final-bite" data-nav="final-bite">Final Bite</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ================= 01 — THE APPETITE OPENER ================= -->
+  <section class="hero" id="opener" aria-labelledby="hero-title" data-section="01">
+    <div class="hero__inner">
+
+      <div class="hero__copy">
+        <p class="hero__kicker label" data-hero-fade><span class="serif">N° 01</span> The Appetite Opener</p>
+        <h1 class="hero__title" id="hero-title">
+          <span class="line"><span>Turn your</span></span>
+          <span class="line line--indent"><span>appetite</span></span>
+          <span class="line"><span>up.</span></span>
+        </h1>
+        <p class="hero__lead" data-hero-fade><span>Food for the curious.</span> <span>Flavour for the <em>fearless.</em></span></p>
+        <a class="btn" href="#menu" data-hero-fade data-fallback="#flavour-chaos">
+          Explore the menu
+          <span class="btn__icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M13 1H4M13 1v9" stroke="currentColor" stroke-width="1.8"/></svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- Composition (decorative except the plate) -->
+      <div class="stage" id="stage">
+        <svg class="stage__ribbon" id="ribbon" viewBox="0 0 1000 600" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="sauceGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="var(--sauce-deep)"/>
+              <stop offset=".45" stop-color="var(--sauce-mid)"/>
+              <stop offset="1" stop-color="var(--sauce-deep)"/>
+            </linearGradient>
+          </defs>
+          <path class="ribbon__body" fill="url(#sauceGrad)"/>
+          <path class="ribbon__gloss" fill="none" stroke="var(--sauce-gloss)" stroke-width="3" stroke-linecap="round" opacity=".7"/>
+        </svg>
+
+        <svg class="stage__lineart" id="lineart" viewBox="0 0 1000 560" aria-hidden="true"></svg>
+
+        <svg class="stage__rings" id="rings" viewBox="0 0 1000 300" aria-hidden="true">
+          <ellipse cx="500" cy="120" rx="300" ry="62"/><ellipse cx="500" cy="122" rx="345" ry="72"/>
+          <ellipse cx="500" cy="124" rx="390" ry="82"/><ellipse cx="500" cy="126" rx="430" ry="92"/>
+          <ellipse cx="500" cy="128" rx="466" ry="101"/><ellipse cx="500" cy="130" rx="498" ry="110"/>
+        </svg>
+
+        <!-- back layer -->
+        <div class="ing ing--back" style="--x:17%;--y:4%;--w:10%" data-depth=".35" data-dir="-1,-1"><div class="ing__p"><img src="assets/s01/tuile.webp" alt="" width="389" height="800"></div></div>
+        <div class="ing ing--back ing--sm-hide" style="--x:70%;--y:2%;--w:8.5%" data-depth=".4" data-dir="1,-1"><div class="ing__p"><img src="assets/s01/tuile-flip.webp" alt="" width="389" height="800"></div></div>
+        <div class="ing ing--back" style="--x:43%;--y:-3%;--w:15%" data-depth=".55" data-dir=".2,-1.2"><div class="ing__p"><img src="assets/s01/basil.webp" alt="" width="800" height="647"></div></div>
+
+        <figure class="plate" id="plate" style="margin:0">
+          <img src="assets/s01/plate.webp" width="1344" height="752" fetchpriority="high"
+               alt="A FEAST MODE signature plate: lacy golden tuiles, a glossy white sphere, an orange sphere, tomatoes, red currants and edible flowers">
+          <img class="plate__reflection" src="assets/s01/plate-reflection.webp" width="1344" height="752" alt="" aria-hidden="true">
+        </figure>
+
+        <!-- front layer -->
+        <div class="ing" style="--x:-13%;--y:47%;--w:19%" data-depth="1" data-dir="-1.3,-.4" data-travel="tomato"><div class="ing__p"><img src="assets/s01/tomato.webp" alt="" width="798" height="800"></div></div>
+        <div class="ing" style="--x:77%;--y:12%;--w:19%" data-depth=".9" data-dir="1.3,-.6"><div class="ing__p"><img src="assets/s01/orange.webp" alt="" width="800" height="800"></div></div>
+        <div class="ing" style="--x:86%;--y:46%;--w:13%" data-depth="1.15" data-dir="1.4,.3"><div class="ing__p"><img src="assets/s01/strawberry.webp" alt="" width="800" height="756"></div></div>
+        <div class="ing" style="--x:2%;--y:62%;--w:15%" data-depth="1.25" data-dir="-1.4,.8"><div class="ing__p"><img src="assets/s01/lemon.webp" alt="" width="800" height="691"></div></div>
+        <div class="ing ing--sm-hide" style="--x:32%;--y:16%;--w:8%" data-depth=".7" data-dir="-.6,-1"><div class="ing__p"><img src="assets/s01/petal.webp" alt="" width="800" height="734"></div></div>
+        <div class="ing" style="--x:74%;--y:72%;--w:9%" data-depth="1.35" data-dir=".9,1.2"><div class="ing__p"><img src="assets/s01/cherry.webp" alt="" width="800" height="800"></div></div>
+      </div>
+    </div>
+
+    <div class="hero__meta label">
+      <a class="hero__scroll" href="#flavour-chaos" data-hero-fade><span class="hero__scroll-dot" aria-hidden="true"></span>Scroll to taste</a>
+      <span class="serif" style="font-size:1rem" data-hero-fade>Food for the curious.</span>
+    </div>
+  </section>
+
+  <!-- ================= 02 — A LITTLE FLAVOUR CHAOS ================= -->
+  <section class="chaos" id="flavour-chaos" aria-labelledby="chaos-title" data-section="02">
+    <h2 class="visually-hidden" id="chaos-title">We don't do boring food.</h2>
+    <div class="chaos__stage" id="chaos-stage">
+      <div class="chaos__specks" id="chaos-specks" aria-hidden="true"></div>
+
+      <p class="chaos__kicker label" aria-hidden="true"><span class="serif">N° 02</span> A Little Flavour Chaos</p>
+
+      <div class="chaos__type" aria-hidden="true">
+        <span class="chaos__we">We don&rsquo;t do</span>
+        <svg class="chaos__boring" id="boring" role="presentation">
+          <defs>
+            <pattern id="foodTile" x="0" y="0" patternUnits="userSpaceOnUse" width="1000" height="520">
+              <image href="assets/s02/food-tile.webp" width="1000" height="520" preserveAspectRatio="none"/>
+            </pattern>
+          </defs>
+          <g id="boring-letters"></g>
+        </svg>
+        <span class="chaos__struck" id="chaos-struck">boring</span>
+        <span class="chaos__food">food.</span>
+      </div>
+
+      <ul class="chaos__labels">
+        <li class="chaos__tag" style="--x:72%;--y:16%"><span class="serif">(01)</span> Fresh ideas.</li>
+        <li class="chaos__tag" style="--x:9%;--y:88%"><span class="serif">(02)</span> Big flavour.</li>
+        <li class="chaos__tag" style="--x:42%;--y:88%"><span class="serif">(03)</span> No ordinary bites.</li>
+      </ul>
+
+      <!-- drifting cutouts: some behind the type, some in front -->
+      <img class="chaos__cut chaos__cut--back" src="assets/s01/basil.webp" alt="" aria-hidden="true" loading="lazy" style="--x:14%;--y:18%;--w:9%" data-speed=".6">
+      <img class="chaos__cut chaos__cut--back" src="assets/s01/orange.webp" alt="" aria-hidden="true" loading="lazy" style="--x:-2%;--y:50%;--w:9%" data-speed=".8">
+      <img class="chaos__cut" src="assets/s01/strawberry.webp" alt="" aria-hidden="true" loading="lazy" style="--x:62%;--y:24%;--w:6.5%" data-speed="1.3">
+      <img class="chaos__cut" src="assets/s01/petal.webp" alt="" aria-hidden="true" loading="lazy" style="--x:24%;--y:66%;--w:6%" data-speed="1.6">
+      <img class="chaos__cut chaos__cut--sm-hide" src="assets/s01/lemon.webp" alt="" aria-hidden="true" loading="lazy" style="--x:90%;--y:5%;--w:6%" data-speed="1.2">
+
+      <!-- the travelling tomato (continues from Section 01) -->
+      <img class="chaos__tomato" id="chaos-tomato" src="assets/s01/tomato.webp" alt="" aria-hidden="true" loading="lazy">
+    </div>
+  </section>
+
+  <!-- ================= 03 — THE INGREDIENTS LABORATORY ================= -->
+  <section class="lab" id="lab" aria-labelledby="lab-title" data-section="03">
+    <div class="lab__stage" id="lab-stage">
+      <div class="lab__table" aria-hidden="true"></div>
+
+      <svg class="lab__flour" id="lab-flour" viewBox="0 0 400 300" aria-hidden="true"></svg>
+      <svg class="lab__oil" id="lab-oil" viewBox="0 0 200 600" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div class="lab__spice" id="lab-spice" aria-hidden="true"></div>
+
+      <div class="lab__copy">
+        <p class="lab__kicker label"><span class="serif">N° 03</span> The Ingredients Laboratory</p>
+        <h2 class="lab__title" id="lab-title">
+          <span class="line"><span>Good things</span></span>
+          <span class="line"><span>don&rsquo;t happen</span></span>
+          <span class="line"><span>by accident.</span></span>
+        </h2>
+        <p class="lab__lead">Every great bite starts with the <em>right ingredients.</em></p>
+      </div>
+
+      <div class="lab__steam" id="lab-steam" aria-hidden="true"></div>
+
+      <figure class="lab__bowl" id="lab-bowl">
+        <img class="lab__bowl-empty" src="assets/s03/bowl-empty.webp" alt="" aria-hidden="true" width="1025" height="573" loading="lazy">
+        <img class="lab__bowl-full" src="assets/s03/bowl-full.webp" width="1025" height="573" loading="lazy"
+             alt="A black stoneware bowl of spaghetti in chunky tomato sauce">
+      </figure>
+
+      <div class="lab__ings" aria-hidden="true">
+        <div class="lab-ing " style="--x:10%;--y:58%;--w:13%"><img src="assets/s01/tomato.webp" alt="" loading="lazy"></div>
+        <div class="lab-ing " style="--x:23%;--y:66%;--w:10%"><img src="assets/s01/basil.webp" alt="" loading="lazy"></div>
+        <div class="lab-ing " style="--x:31%;--y:80%;--w:6.5%"><img src="assets/s03/cuke-slice.webp" alt="" loading="lazy"></div>
+        <div class="lab-ing " style="--x:80%;--y:72%;--w:11%"><img src="assets/s03/cucumber.webp" alt="" loading="lazy"></div>
+        <div class="lab-ing " style="--x:81%;--y:42%;--w:10%"><img src="assets/s03/garlic.webp" alt="" loading="lazy"></div>
+        <div class="lab-ing lab-ing--sm-hide" style="--x:70%;--y:10%;--w:9.5%"><img src="assets/s03/avocado.webp" alt="" loading="lazy"></div>
+        <div class="lab-ing " style="--x:57%;--y:30%;--w:9%"><img src="assets/s03/pasta.webp" alt="" loading="lazy"></div>
+        <div class="lab-ing " style="--x:43%;--y:52%;--w:8%"><img src="assets/s03/thyme.webp" alt="" loading="lazy"></div>
+        <div class="lab-ing lab-ing--sm-hide" style="--x:46%;--y:12%;--w:8%"><img src="assets/s03/parsley.webp" alt="" loading="lazy"></div>
+        <div class="lab-ing lab-ing--sm-hide" style="--x:87%;--y:22%;--w:8%"><img src="assets/s03/thyme-flip.webp" alt="" loading="lazy"></div>
+      </div>
+      <div class="lab__splash" id="lab-splash" aria-hidden="true"></div>
+
+      <p class="lab__meter label" aria-hidden="true"><span class="serif">Assembly</span> <b id="lab-pct">100</b>%</p>
+    </div>
+  </section>
+
+  <!-- ================= 04 — THE MOVING MENU ================= -->
+  <section class="menu" id="menu" aria-labelledby="menu-title" data-section="04">
+    <div class="menu__stage" id="menu-stage">
+      <div class="menu__fog" id="menu-fog" aria-hidden="true"></div>
+
+      <header class="menu__head">
+        <div>
+          <p class="menu__kicker label"><span class="serif">N° 04</span> The Moving Menu</p>
+          <h2 class="menu__title" id="menu-title">Meet your new<br>favourite bite.</h2>
+        </div>
+        <div class="menu__controls">
+          <p class="menu__count" aria-live="polite"><b id="menu-current">01</b> <span class="serif">/ 04</span></p>
+          <button class="menu__arrow" type="button" id="menu-prev" aria-label="Previous dish">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 3 5 9l6 6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <button class="menu__arrow" type="button" id="menu-next" aria-label="Next dish">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="m7 3 6 6-6 6" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="menu__viewport" id="menu-viewport">
+        <ol class="menu__track" id="menu-track">
+          <li class="dish" data-index="0">
+            <div class="dish__media" aria-hidden="true">
+              <img class="dish__garnish" src="assets/s01/cherry.webp" alt="" loading="lazy">
+              <div class="dish__plate dish__plate--plate"><img src="assets/s04/burger.webp" alt="" loading="lazy"></div>
+              <img class="dish__cutlery" src="assets/s04/cutlery.webp" alt="" loading="lazy">
+            </div>
+            <div class="dish__info">
+              <p class="dish__num"><span class="serif">N°</span> 01</p>
+              <h3 class="dish__name">The Big Energy Burger</h3>
+              <p class="dish__desc">Double smashed beef, molten cheddar, house pickles and smoky Feast sauce on a glossy brioche, with skin-on fries.</p>
+              <p class="dish__price"><span class="visually-hidden">Price: </span>$16</p>
+              <button class="btn dish__cta" type="button" data-dish="0" aria-haspopup="dialog">Discover dish
+                <span class="btn__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M13 1H4M13 1v9" stroke="currentColor" stroke-width="1.8"/></svg></span>
+              </button>
+            </div>
+          </li>
+          <li class="dish" data-index="1">
+            <div class="dish__media" aria-hidden="true">
+              <img class="dish__garnish" src="assets/s01/basil.webp" alt="" loading="lazy">
+              <div class="dish__plate dish__plate--glass"><img src="assets/s04/pasta-plate.webp" alt="" loading="lazy"></div>
+              <img class="dish__cutlery" src="assets/s04/cutlery.webp" alt="" loading="lazy">
+            </div>
+            <div class="dish__info">
+              <p class="dish__num"><span class="serif">N°</span> 02</p>
+              <h3 class="dish__name">Sunday Pasta Club</h3>
+              <p class="dish__desc">Slow-cooked San Marzano sauce, hand-twirled spaghetti, aged parmesan and torn basil. A Sunday ritual, any day of the week.</p>
+              <p class="dish__price"><span class="visually-hidden">Price: </span>$18</p>
+              <button class="btn dish__cta" type="button" data-dish="1" aria-haspopup="dialog">Discover dish
+                <span class="btn__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M13 1H4M13 1v9" stroke="currentColor" stroke-width="1.8"/></svg></span>
+              </button>
+            </div>
+          </li>
+          <li class="dish" data-index="2">
+            <div class="dish__media" aria-hidden="true">
+              <img class="dish__garnish" src="assets/s01/lemon.webp" alt="" loading="lazy">
+              <div class="dish__plate dish__plate--bowl"><img src="assets/s04/golden-bowl.webp" alt="" loading="lazy"></div>
+              <img class="dish__cutlery" src="assets/s04/cutlery.webp" alt="" loading="lazy">
+            </div>
+            <div class="dish__info">
+              <p class="dish__num"><span class="serif">N°</span> 03</p>
+              <h3 class="dish__name">Golden Hour Bowl</h3>
+              <p class="dish__desc">Turmeric rice, roasted squash, a jammy egg, avocado, pink pickled radish and toasted seeds. Bright, warm and quietly filling.</p>
+              <p class="dish__price"><span class="visually-hidden">Price: </span>$15</p>
+              <button class="btn dish__cta" type="button" data-dish="2" aria-haspopup="dialog">Discover dish
+                <span class="btn__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M13 1H4M13 1v9" stroke="currentColor" stroke-width="1.8"/></svg></span>
+              </button>
+            </div>
+          </li>
+          <li class="dish" data-index="3">
+            <div class="dish__media" aria-hidden="true">
+              <img class="dish__garnish" src="assets/s03/thyme.webp" alt="" loading="lazy">
+              <div class="dish__plate dish__plate--acrylic"><img src="assets/s04/hot-honey.webp" alt="" loading="lazy"></div>
+              <img class="dish__cutlery" src="assets/s04/cutlery.webp" alt="" loading="lazy">
+            </div>
+            <div class="dish__info">
+              <p class="dish__num"><span class="serif">N°</span> 04</p>
+              <h3 class="dish__name">The Hot Honey Crunch</h3>
+              <p class="dish__desc">Double-fried buttermilk chicken glazed in chilli hot honey, with sharp pickles and a squeeze of lime.</p>
+              <p class="dish__price"><span class="visually-hidden">Price: </span>$17</p>
+              <button class="btn dish__cta" type="button" data-dish="3" aria-haspopup="dialog">Discover dish
+                <span class="btn__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M13 1H4M13 1v9" stroke="currentColor" stroke-width="1.8"/></svg></span>
+              </button>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="menu__progress" aria-hidden="true"><span id="menu-bar"></span></div>
+    </div>
+
+    <dialog class="dish-dialog" id="dish-dialog" aria-labelledby="dd-name">
+      <button class="dish-dialog__close" type="button" aria-label="Close dish details">Close</button>
+      <div class="dish-dialog__media"><div class="dish__plate" id="dd-plate"><img id="dd-img" alt=""></div></div>
+      <div class="dish-dialog__body">
+        <p class="dish__num" id="dd-num"></p>
+        <h3 class="dish__name" id="dd-name"></h3>
+        <p class="dish__desc" id="dd-desc"></p>
+        <h4 class="label">What&rsquo;s inside</h4>
+        <ul class="dish-dialog__list" id="dd-ings"></ul>
+        <dl class="dish-dialog__facts">
+          <div><dt class="label">Heat</dt><dd id="dd-heat"></dd></div>
+          <div><dt class="label">Contains</dt><dd id="dd-allergens"></dd></div>
+          <div><dt class="label">Price</dt><dd id="dd-price"></dd></div>
+        </dl>
+      </div>
+    </dialog>
+  </section>
+
+  <!-- ================= 05 — FLAVOUR IN MOTION ================= -->
+  <section class="fim" id="flavour-in-motion" aria-labelledby="fim-title" data-section="05">
+    <div class="fim__pin" id="fim-pin">
+
+      <div class="fim__scene" id="fim-scene">
+        <p class="fim__kicker label"><span class="serif">N° 05</span> Flavour in Motion</p>
+        <h2 class="fim__title" id="fim-title">
+          <span class="fim__l1">A little mess.</span>
+          <span class="fim__l2">A lot of flavour.</span>
+        </h2>
+        <img class="fim__splash" id="fim-splash" src="assets/s05/splash.webp" alt="" aria-hidden="true" loading="lazy" width="1024" height="1024">
+        <div class="fim__drops" id="fim-drops" aria-hidden="true"></div>
+        <img class="fim__vine" src="assets/s05/vine.webp" alt="" aria-hidden="true" loading="lazy" width="1200" height="353">
+      </div>
+
+      <!-- sauce flood (food colour, not UI red) -->
+      <svg class="fim__flood" id="fim-flood" aria-hidden="true">
+        <defs>
+          <linearGradient id="sauceFlood" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="var(--sauce-mid)"/><stop offset="1" stop-color="var(--sauce-deep)"/>
+          </linearGradient>
+          <clipPath id="floodClip"><path id="fc-surface"/><path id="fc-curtain"/></clipPath>
+        </defs>
+        <path id="fl-surface" fill="url(#sauceFlood)"/>
+        <path id="fl-curtain" fill="url(#sauceFlood)"/>
+        <path id="fl-gloss" fill="none" stroke="var(--sauce-gloss)" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+        <path id="fl-rim" fill="none" stroke="#F7B79C" stroke-width="5" opacity=".5"/>
+      </svg>
+      <!-- the same headline in cream, visible only where the sauce is -->
+      <p class="fim__title fim__title--cream" aria-hidden="true">
+        <span class="fim__l1">A little mess.</span>
+        <span class="fim__l2">A lot of flavour.</span>
+      </p>
+
+      <figure class="fim__reveal" id="fim-reveal">
+        <img src="assets/s05/reveal.webp" alt="Slow-roasted vine tomatoes, torn burrata and basil oil on a cream ceramic plate" loading="lazy" width="1344" height="752">
+        <figcaption class="fim__caption"><span class="label">The reveal</span> <span class="serif">Slow-roasted vine tomatoes, burrata, basil oil.</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= 06 — THE FEAST MODE RITUAL ================= -->
+  <section class="ritual" id="ritual" aria-labelledby="ritual-title" data-section="06">
+    <div class="ritual__stage">
+      <div class="ritual__copy">
+        <p class="ritual__kicker label"><span class="serif">N° 06</span> The FEAST MODE Ritual</p>
+        <h2 class="ritual__title" id="ritual-title">
+          <span class="line"><span><i class="serif" aria-hidden="true">i.</i> Good food.</span></span>
+          <span class="line"><span><i class="serif" aria-hidden="true">ii.</i> Good mood.</span></span>
+          <span class="line"><span><i class="serif" aria-hidden="true">iii.</i> Good company.</span></span>
+        </h2>
+        <p class="ritual__lead">Pull up a chair. The table is set, the glasses are full and nobody&rsquo;s in a hurry.</p>
+      </div>
+
+      <div class="ritual__table" aria-hidden="true">
+        <div class="runner"></div>
+        <img class="obj obj--fern" src="assets/s06/fern.webp" alt="" loading="lazy" style="--x:30%;--y:66%;--w:12%;--r:-62deg">
+        <img class="obj obj--fern" src="assets/s06/fern.webp" alt="" loading="lazy" style="--x:50%;--y:30%;--w:12%;--r:118deg">
+
+        <div class="obj glass glass--water" style="--x:9%;--y:4%;--w:7.5%"><span class="glass__liquid"></span></div>
+        <img class="obj obj--napkin" data-napkin src="assets/s06/napkin.webp" alt="" loading="lazy" style="--x:23%;--y:-5%;--w:9%;--r:4deg">
+        <img class="obj obj--cutlery" data-fork src="assets/s04/cutlery.webp" alt="" loading="lazy" style="--x:21%;--y:-3%;--w:13%;--r:2deg">
+        <div class="obj glass glass--cocktail" data-fill style="--x:37%;--y:7%;--w:8.5%"><span class="glass__liquid"></span><span class="glass__flower"></span></div>
+
+        <div class="obj steam-host" style="--x:66%;--y:-14%;--w:24%;--h:34%" id="ritual-steam"></div>
+        <img class="obj obj--bowl" src="assets/s06/scallop-bowl.webp" alt="" loading="lazy" style="--x:60%;--y:-6%;--w:34%">
+
+        <img class="obj" src="assets/s01/lemon.webp" alt="" loading="lazy" style="--x:45%;--y:50%;--w:7%;--r:-20deg">
+        <img class="obj" src="assets/s01/orange.webp" alt="" loading="lazy" style="--x:52%;--y:58%;--w:8%;--r:10deg">
+        <div class="obj glass glass--cocktail glass--sm-hide" data-fill style="--x:85%;--y:44%;--w:7.5%"><span class="glass__liquid"></span><span class="glass__flower"></span></div>
+        <div class="obj salt" style="--x:41%;--y:74%;--w:7%"></div>
+
+        <img class="obj" src="assets/s06/cherries.webp" alt="" loading="lazy" style="--x:-4%;--y:74%;--w:22%">
+        <img class="obj obj--napkin" data-napkin src="assets/s06/napkin.webp" alt="" loading="lazy" style="--x:62%;--y:66%;--w:10%;--r:-6deg">
+        <img class="obj obj--plates" src="assets/s06/plates.webp" alt="" loading="lazy" style="--x:71%;--y:60%;--w:26%">
+        <img class="obj obj--cutlery" data-fork src="assets/s04/cutlery.webp" alt="" loading="lazy" style="--x:61%;--y:68%;--w:13%;--r:-4deg">
+        <div class="ritual__flecks" id="ritual-flecks"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 07 — GOOD FOOD HAS A PERSONALITY ================= -->
+  <section class="pers" id="personality" aria-labelledby="pers-title" data-section="07">
+    <h2 class="visually-hidden" id="pers-title">Good food has a personality: big flavour, no boring bites, always extra.</h2>
+    <div class="pers__pin" id="pers-pin">
+      <p class="pers__kicker label" aria-hidden="true"><span class="serif">N° 07</span> Good Food Has a Personality</p>
+
+      <div class="posters" aria-hidden="true">
+        <!-- poster 1 — yolk -->
+        <article class="poster poster--yolk" data-poster="0">
+          <svg class="poster__waves" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+            <path class="w1" d="M0 80 C150 40 300 120 450 80 S750 40 900 80 S1150 120 1200 90 V200 H0Z"/>
+            <path class="w2" d="M0 120 C200 90 350 150 550 115 S850 90 1000 125 S1150 140 1200 120 V200 H0Z"/>
+            <path class="w3" d="M0 160 C180 140 380 180 600 155 S900 140 1200 165 V200 H0Z"/>
+          </svg>
+          <img class="fruit" src="assets/s07/grapes.webp" alt="" loading="lazy" style="--x:5%;--y:8%;--w:13%" data-bob>
+          <img class="fruit" src="assets/s07/pineapple.webp" alt="" loading="lazy" style="--x:80%;--y:30%;--w:13%" data-bob>
+          <img class="fruit fruit--back" src="assets/s07/cherries-marble.webp" alt="" loading="lazy" style="--x:62%;--y:2%;--w:11%" data-bob>
+          <span class="sphere sphere--pink" style="--x:30%;--y:12%;--s:2.2vw" data-bob></span><span class="sphere sphere--chrome" style="--x:88%;--y:10%;--s:1.6vw" data-bob></span><span class="sphere sphere--herb" style="--x:14%;--y:70%;--s:1.4vw" data-bob></span><span class="sphere sphere--cream" style="--x:52%;--y:80%;--s:2vw" data-bob></span>
+          <p class="poster__text">
+            <span class="pw pw--sm" data-w="l">Big</span>
+            <span class="pw" data-w="r">Flav<span class="swap"><img src="assets/s07/orange-slice.webp" alt="" loading="lazy" data-spin></span>ur.</span>
+          </p>
+          <span class="poster__num label"><span class="serif">i.</span> Big flavour</span>
+        </article>
+
+        <!-- poster 2 — guava -->
+        <article class="poster poster--guava" data-poster="1">
+          <svg class="poster__waves" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+            <path class="w1" d="M0 80 C150 40 300 120 450 80 S750 40 900 80 S1150 120 1200 90 V200 H0Z"/>
+            <path class="w2" d="M0 120 C200 90 350 150 550 115 S850 90 1000 125 S1150 140 1200 120 V200 H0Z"/>
+            <path class="w3" d="M0 160 C180 140 380 180 600 155 S900 140 1200 165 V200 H0Z"/>
+          </svg>
+          <img class="fruit" src="assets/s07/banana.webp" alt="" loading="lazy" style="--x:70%;--y:4%;--w:17%;--r:-18deg" data-bob>
+          <img class="fruit" src="assets/s07/cherries-marble.webp" alt="" loading="lazy" style="--x:6%;--y:58%;--w:12%" data-bob>
+          <img class="fruit fruit--back" src="assets/s07/grapes.webp" alt="" loading="lazy" style="--x:86%;--y:52%;--w:10%;--r:12deg" data-bob>
+          <span class="sphere sphere--yolk" style="--x:10%;--y:10%;--s:2.4vw" data-bob></span><span class="sphere sphere--chrome" style="--x:46%;--y:8%;--s:1.4vw" data-bob></span><span class="sphere sphere--herb" style="--x:62%;--y:82%;--s:1.8vw" data-bob></span><span class="sphere sphere--cream" style="--x:30%;--y:84%;--s:1.2vw" data-bob></span>
+          <p class="poster__text">
+            <span class="pw" data-w="rot">No B<span class="swap swap--apple"><img src="assets/s07/apple.webp" alt="" loading="lazy" data-spin></span>ring</span>
+            <span class="pw" data-w="up">Bites.</span>
+          </p>
+          <span class="poster__num label"><span class="serif">ii.</span> No boring bites</span>
+        </article>
+
+        <!-- poster 3 — herb -->
+        <article class="poster poster--herb" data-poster="2">
+          <svg class="poster__waves" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+            <path class="w1" d="M0 80 C150 40 300 120 450 80 S750 40 900 80 S1150 120 1200 90 V200 H0Z"/>
+            <path class="w2" d="M0 120 C200 90 350 150 550 115 S850 90 1000 125 S1150 140 1200 120 V200 H0Z"/>
+            <path class="w3" d="M0 160 C180 140 380 180 600 155 S900 140 1200 165 V200 H0Z"/>
+          </svg>
+          <img class="fruit" src="assets/s07/pineapple.webp" alt="" loading="lazy" style="--x:4%;--y:16%;--w:12%;--r:-12deg" data-bob>
+          <img class="fruit" src="assets/s07/apple.webp" alt="" loading="lazy" style="--x:84%;--y:8%;--w:11%" data-bob>
+          <img class="fruit fruit--back" src="assets/s07/banana.webp" alt="" loading="lazy" style="--x:72%;--y:66%;--w:14%;--r:24deg" data-bob>
+          <span class="sphere sphere--guava" style="--x:26%;--y:6%;--s:2vw" data-bob></span><span class="sphere sphere--yolk" style="--x:56%;--y:86%;--s:2.4vw" data-bob></span><span class="sphere sphere--chrome" style="--x:92%;--y:40%;--s:1.4vw" data-bob></span><span class="sphere sphere--cream" style="--x:12%;--y:78%;--s:1.6vw" data-bob></span>
+          <p class="poster__text">
+            <span class="pw pw--sm" data-w="l">Always</span>
+            <span class="pw" data-w="scale">E<span class="swap swap--x"><img class="x-fork" src="assets/s07/fork.webp" alt="" loading="lazy"><img class="x-knife" src="assets/s07/knife.webp" alt="" loading="lazy"></span>tra.</span>
+          </p>
+          <span class="poster__num label"><span class="serif">iii.</span> Always extra</span>
+        </article>
+      </div>
+
+      <!-- the traveller: one disco tomato carried across all three posters -->
+      <div class="pers__traveller" id="pers-traveller" aria-hidden="true">
+        <img src="assets/s07/disco-tomato.webp" alt="" loading="lazy">
+        <span class="sparkle" style="--x:18%;--y:22%"></span><span class="sparkle" style="--x:76%;--y:40%"></span><span class="sparkle" style="--x:40%;--y:78%"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 08 — THE FINAL BITE ================= -->
+  <section class="final" id="final-bite" aria-labelledby="final-title" data-section="08" data-jump="end">
+    <div class="final__pin" id="final-pin">
+      <div class="final__scene" id="final-scene" aria-hidden="true">
+        <div class="final__linen"></div>
+        <svg class="final__mat" id="final-mat" viewBox="0 0 1000 720"></svg>
+        <img class="final__posy" src="assets/s08/posy.webp" alt="" loading="lazy">
+        <div class="final__glass final__glass--a"><img src="assets/s08/spritz.webp" alt="" loading="lazy"></div>
+        <div class="final__glass final__glass--b"><img src="assets/s08/spritz.webp" alt="" loading="lazy"></div>
+        <img class="final__knife" src="assets/s07/knife.webp" alt="" loading="lazy">
+        <div class="final__plate" id="final-plate">
+          <div class="final__bowl"><img src="assets/s08/pasta-bowl.webp" alt="" loading="lazy"></div>
+        </div>
+        <div class="final__steam" id="final-steam"></div>
+        <img class="final__fork" id="final-fork" src="assets/s08/fork-bite.webp" alt="" loading="lazy">
+        <div class="final__light"></div>
+      </div>
+
+      <div class="final__copy">
+        <p class="final__kicker label"><span class="serif">N° 08</span> The Final Bite</p>
+        <h2 class="final__title" id="final-title">
+          <span class="line"><span>Hungry</span></span>
+          <span class="line"><span>yet?</span></span>
+        </h2>
+        <p class="final__lead">Your next favourite bite is <em>waiting.</em></p>
+        <a class="btn final__cta" href="#menu">Explore the menu <span class="btn__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 13 13 1M13 1H4M13 1v9" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer" id="footer">
+  <div class="footer__top">
+    <p class="footer__tag"><span class="serif">Turn your appetite up.</span> Food for the curious. Flavour for the fearless.</p>
+    <nav class="footer__col" aria-label="Footer">
+      <h3 class="label">Explore</h3>
+      <ul>
+        <li><a href="#opener">The Opener</a></li>
+        <li><a href="#lab">The Lab</a></li>
+        <li><a href="#menu">The Menu</a></li>
+        <li><a href="#ritual">The Ritual</a></li>
+      </ul>
+    </nav>
+    <div class="footer__col">
+      <h3 class="label">Follow</h3>
+      <ul>
+        <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="https://www.youtube.com/" target="_blank" rel="noopener">YouTube<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+      </ul>
+    </div>
+    <a class="btn footer__top-btn" href="#top">Back to top <span class="btn__icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 13V1M7 1 1.5 6.5M7 1l5.5 5.5" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+  </div>
+  <p class="footer__mark"><span class="visually-hidden">FEAST MODE</span>
+    <span aria-hidden="true"><span class="fm-l">F</span><span class="fm-l">E</span><span class="fm-l">A</span><span class="fm-l">S</span><span class="fm-l">T</span><span class="fm-l fm-sp"> </span><span class="fm-l">M</span><span class="fm-l">O</span><span class="fm-l">D</span><span class="fm-l">E</span><sup class="fm-l">®</sup></span>
+  </p>
+  <p class="footer__legal"><span>&copy; 2026 FEAST MODE&reg;</span><span>A fictional food &amp; lifestyle brand.</span></p>
+</footer>
+
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/system.js"></script>
+<script src="js/s01-hero.js"></script>
+<script src="js/s02-chaos.js"></script>
+<script src="js/s03-lab.js"></script>
+<script src="js/s04-menu.js"></script>
+<script src="js/s05-fim.js"></script>
+<script src="js/s06-ritual.js"></script>
+<script src="js/s07-pers.js"></script>
+<script src="js/s08-final.js"></script>
+</body>
+</html>

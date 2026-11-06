@@ -1,0 +1,96 @@
+/* =========================================================
+   SECTION 02 — A LITTLE FLAVOUR CHAOS
+   Reference 02: a word built from food, centred, with a
+   smaller line offset bottom-right and evenly scattered
+   specks on a flat surface. Translated onto cream.
+   ========================================================= */
+.chaos { position: relative; }
+.chaos__stage {
+  position: relative; height: 100svh; min-height: 620px;
+  overflow: clip; isolation: isolate;
+}
+.chaos__stage > * { position: absolute; }
+
+.chaos__kicker {
+  left: var(--gutter); top: var(--section-top); margin: 0; z-index: 4;
+  display: flex; align-items: center; gap: .75rem; color: var(--ink-60);
+}
+.chaos__kicker .serif { font-size: 1.2rem; color: var(--ink); }
+.chaos__kicker::before { content: ""; width: 2.5rem; height: 1.5px; background: var(--ink); }
+
+/* ---------- specks (peppercorns, salt crystals) ---------- */
+.chaos__specks { inset: 0; z-index: 0; }
+.speck { position: absolute; left: var(--x); top: var(--y); }
+.speck--pepper { width: 9px; height: 9px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #5a5a4e, var(--ink) 60%); }
+.speck--salt {
+  width: 13px; height: 13px; border-radius: 3px; rotate: var(--r);
+  background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,.55) 60%, rgba(41,41,35,.08));
+  box-shadow: 0 0 0 1px rgba(41,41,35,.12), 0 3px 5px rgba(41,41,35,.08);
+}
+.speck--yolk { width: 7px; height: 7px; border-radius: 50%; background: var(--yolk); }
+
+/* ---------- type ---------- */
+.chaos__type {
+  left: 50%; top: 50%; translate: -50% -48%; z-index: 2;
+  width: min(94vw, 1500px);
+  display: grid; grid-template-columns: 1fr; line-height: .9;
+}
+.chaos__we, .chaos__food {
+  font-family: var(--f-display); font-size: var(--t-xl); text-transform: uppercase;
+  display: block; will-change: transform;
+}
+.chaos__we { justify-self: start; margin-left: 4%; margin-bottom: -.1em; }
+.chaos__food { justify-self: end; margin-right: 3%; margin-top: .05em; }
+.chaos__boring { position: relative; width: 100%; height: auto; overflow: visible; display: block; }
+.chaos__boring text {
+  font-family: var(--f-display); font-size: 300px;
+  stroke: var(--ink); stroke-width: 2.5; paint-order: stroke;
+  vector-effect: non-scaling-stroke;
+}
+.b-letter { transform-box: fill-box; transform-origin: 50% 100%; }
+
+/* the word that replaces BORING once the tomato knocks it out */
+.chaos__struck {
+  position: absolute; left: 50%; top: 50%; translate: -50% -50%;
+  font-family: var(--f-serif); font-style: italic; font-size: clamp(3rem, 9vw, 9rem); line-height: 1;
+  opacity: 0; white-space: nowrap;
+}
+.chaos__struck::after {
+  content: ""; position: absolute; left: -4%; right: -4%; top: 55%; height: .07em; background: var(--ink);
+  transform: scaleX(var(--strike, 0)); transform-origin: left;
+}
+
+/* ---------- editorial labels ---------- */
+.chaos__labels { inset: 0; margin: 0; padding: 0; list-style: none; z-index: 3; pointer-events: none; }
+.chaos__tag {
+  position: absolute; left: var(--x); top: var(--y);
+  display: inline-flex; align-items: baseline; gap: .5rem;
+  font-weight: 700; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
+  padding: .55rem .9rem; border: 1.5px solid var(--ink); border-radius: 999px; background: var(--cream);
+}
+.chaos__tag .serif { font-size: 1rem; letter-spacing: 0; }
+
+/* ---------- cutouts ---------- */
+.chaos__cut { left: var(--x); top: var(--y); width: var(--w); z-index: 3; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.chaos__cut--back { z-index: 1; }
+.chaos__tomato {
+  z-index: 5; width: clamp(160px, 22vw, 360px); left: 0; top: 50%;
+  translate: 0 -12%; visibility: hidden; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 760px) {
+  .chaos__type { width: 96vw; translate: -50% -55%; }
+  .chaos__we, .chaos__food { font-size: clamp(1.8rem, 9vw, 3rem); }
+  .chaos__tag { font-size: .68rem; padding: .45rem .7rem; }
+  .chaos__tag:nth-child(1) { left: auto; right: var(--gutter); top: 22%; }
+  .chaos__tag:nth-child(2) { top: 72%; }
+  .chaos__tag:nth-child(3) { left: auto; right: var(--gutter); top: 82%; }
+  .chaos__cut { width: calc(var(--w) * 1.8); }
+  .chaos__cut--sm-hide { display: none; }
+}
+
+/* reduced motion: tomato rests beside the word, nothing travels */
+@media (prefers-reduced-motion: reduce) {
+  .chaos__tomato { left: auto; right: 3%; top: auto; bottom: 1%; translate: none; width: clamp(90px, 9vw, 140px); visibility: visible; }
+}

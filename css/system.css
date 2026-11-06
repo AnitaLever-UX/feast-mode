@@ -1,0 +1,168 @@
+/* =========================================================
+   FEAST MODE — GLOBAL SYSTEM (shared by all 8 sections)
+   ---------------------------------------------------------
+   Colour rule: --tomato is for interactive UI ONLY
+   (CTAs, active nav, selected controls). Food imagery keeps
+   its natural colours; sauce visuals use --sauce-* (food).
+   ========================================================= */
+:root {
+  --cream: #F7EEDB;
+  --ink: #292923;
+  --herb: #244C3C;
+  --yolk: #F4C542;
+  --guava: #E8A0A5;
+  --tomato: #E94F2E;          /* interactive only */
+  --tomato-press: #C93D1F;    /* pressed state of interactive */
+
+  /* food-rendering colours (not UI) */
+  --sauce-deep: #9E2410;
+  --sauce-mid: #C9361A;
+  --sauce-gloss: #F07A55;
+
+  --ink-60: rgba(41, 41, 35, .74);  /* ≥4.5:1 on cream */
+  --ink-25: rgba(41, 41, 35, .25);
+  --ink-12: rgba(41, 41, 35, .12);
+
+  --f-display: "Bowlby One SC", "Arial Black", sans-serif;
+  --f-body: "DM Sans", system-ui, sans-serif;
+  --f-serif: "Instrument Serif", Georgia, serif;
+
+  /* type scale */
+  --t-mega: clamp(3.4rem, 8.4vw, 9.5rem);
+  --t-xl: clamp(2.4rem, 5.5vw, 6rem);
+  --t-lead: clamp(1.05rem, 1.35vw, 1.35rem);
+  --t-body: 1rem;
+  --t-label: .75rem;
+
+  /* spacing */
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --nav-h: 72px;
+  /* one shared distance from the nav bar to each section's label */
+  --section-top: calc(var(--nav-h) + 1.5rem);
+
+  /* motion conventions */
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: var(--t-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+.skip-link {
+  position: fixed; left: 1rem; top: -4rem; z-index: 100;
+  background: var(--ink); color: var(--cream); padding: .75rem 1rem; border-radius: 999px;
+  text-decoration: none; font-weight: 600;
+}
+.skip-link:focus { top: 1rem; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* ---------- Labels / editorial helpers ---------- */
+.label {
+  font-family: var(--f-body); font-size: var(--t-label); font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+}
+.serif { font-family: var(--f-serif); font-weight: 400; font-style: italic; text-transform: none; letter-spacing: 0; }
+
+/* ---------- Buttons (interactive → tomato) ---------- */
+.btn {
+  --pad-y: .95rem; --pad-x: 1.6rem;
+  display: inline-flex; align-items: center; gap: .9rem;
+  padding: var(--pad-y) var(--pad-x);
+  background: var(--tomato); color: var(--cream);
+  font-family: var(--f-body); font-weight: 700; font-size: 1.2rem; letter-spacing: .06em; /* ≥18.66px bold = large text: cream on tomato passes AA */
+  text-transform: uppercase; text-decoration: none;
+  border: 0; border-radius: 999px; cursor: pointer;
+  transition: transform .35s var(--ease-out), background-color .2s;
+}
+.btn__icon {
+  display: grid; place-items: center; width: 2rem; height: 2rem; margin-right: -.9rem;
+  border-radius: 50%; background: var(--cream); color: var(--tomato);
+  transition: transform .45s var(--ease-out);
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:hover .btn__icon { transform: rotate(-45deg); }
+.btn:active { background: var(--tomato-press); transform: translateY(0); }
+
+/* ---------- Navigation ---------- */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--gutter);
+  /* always solid so the bar reads over every scene, including the footer */
+  background: var(--cream); box-shadow: 0 1px 0 var(--ink-12);
+}
+.nav__brand {
+  font-family: var(--f-display); font-size: 1.25rem; letter-spacing: .02em; text-decoration: none; line-height: 1;
+}
+.nav__brand sup { font-family: var(--f-body); font-size: .55em; vertical-align: super; margin-left: .1em; }
+.nav__links { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+.nav__links a {
+  font-weight: 600; font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; padding: .5rem 0; position: relative;
+}
+.nav__links a::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: .2rem; height: 2px;
+  background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease-out);
+}
+.nav__links a:hover::after { transform: scaleX(1); }
+.nav__links a[aria-current="true"] { color: var(--tomato); }
+.nav__links a[aria-current="true"]::after { transform: scaleX(1); }
+.nav__toggle {
+  display: none; background: none; border: 1.5px solid var(--ink); color: var(--ink); border-radius: 999px;
+  padding: .55rem 1rem; font: 700 .75rem/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; cursor: pointer;
+}
+.nav__toggle[aria-expanded="true"] { background: var(--tomato); border-color: var(--tomato); color: var(--cream); }
+
+@media (max-width: 760px) {
+  .nav__toggle { display: inline-block; margin-left: auto; } /* pin to the right margin */
+  .nav__links {
+    position: fixed; inset: var(--nav-h) 0 auto 0; flex-direction: column; gap: 0;
+    background: var(--cream); padding: 1rem var(--gutter) 2rem; box-shadow: 0 12px 30px var(--ink-12);
+    transform: translateY(-120%); visibility: hidden; transition: transform .45s var(--ease-out), visibility .45s;
+  }
+  .nav__links.is-open { transform: none; visibility: visible; }
+  .nav__links a { display: block; font-family: var(--f-display); font-size: 2rem; letter-spacing: 0; padding: .4rem 0; }
+}
+.nav [hidden] { display: none !important; }
+.fm-curtain { position: fixed; inset: 0; z-index: 80; background: var(--cream); opacity: 0; pointer-events: none; }
+[tabindex="-1"]:focus { outline: none; }
+
+/* ---------- Placeholder for sections not yet built ---------- */
+.pending {
+  min-height: 100svh; display: grid; place-items: center; text-align: center;
+  padding: var(--gutter); border-top: 1px dashed var(--ink-25);
+}
+.pending p { margin: .5rem 0 0; color: var(--ink-60); }
+
+/* ---------- performance: animated cutouts get their own GPU layer so their
+   drop-shadows are painted once, not re-painted every frame ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* leaf elements that move get their own layer; containers that only carry them don't */
+  .ing img, .plate > img:first-child, .stage__lineart, .stage__rings, .stage__ribbon,
+  .chaos__cut, .chaos__tomato, .pw, .lab-ing img, .lab-ing, .lab__bowl, .dish__plate, .dish__media,
+  .fim__splash, .fim__vine, .fruit, .sphere, .swap img, .poster, .pers__traveller img,
+  .obj, .runner, .final__scene, .final__fork, .final__plate, .final__mat { will-change: transform; }
+}
+
+/* shared steam (FM.steam): soft wisps, transform/opacity only */
+.fm-steam { position: absolute; inset: 0; pointer-events: none; }
+.fm-steam__wisp {
+  position: absolute; bottom: 0; width: 26%; height: 70%; margin-left: -13%; border-radius: 50%;
+  background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(255,255,255,.85), rgba(255,255,255,.35) 45%, rgba(255,255,255,0) 70%);
+  will-change: transform, opacity; transform-origin: 50% 100%;
+}

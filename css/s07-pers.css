@@ -1,0 +1,81 @@
+/* =========================================================
+   SECTION 07 — GOOD FOOD HAS A PERSONALITY
+   Reference 07: surreal patterned fruit, glossy primitives,
+   wide type with a letter swapped for fruit, saturated field
+   with layered wave bands. Here: three posters pasted onto
+   the cream wall (yolk / guava / herb), one per statement.
+   ========================================================= */
+.pers { position: relative; }
+.pers__pin { position: relative; height: 100svh; min-height: 640px; overflow: clip; isolation: isolate; }
+.pers__kicker { position: absolute; z-index: 6; left: var(--gutter); top: var(--section-top); margin: 0; display: flex; align-items: center; gap: .75rem; color: var(--ink-60); }
+.pers__kicker .serif { font-size: 1.2rem; color: var(--ink); }
+.pers__kicker::before { content: ""; width: 2.5rem; height: 1.5px; background: var(--ink); }
+
+.posters { position: absolute; inset: calc(var(--section-top) + 2.3rem) var(--gutter) 1.6rem; }
+.poster {
+  position: absolute; inset: 0; border-radius: 28px; isolation: isolate; /* no overflow clip: clipping a moving layer is costly */
+  box-shadow: 0 30px 60px -24px rgba(41,41,35,.35), 0 2px 0 rgba(41,41,35,.06);
+  display: grid; place-items: center;
+}
+.poster--yolk { background: var(--yolk); color: var(--ink); --wave: 41,41,35; --wa: .06; }
+.poster--guava { background: var(--guava); color: var(--ink); --wave: 41,41,35; --wa: .06; }
+.poster--herb { background: var(--herb); color: var(--cream); --wave: 247,238,219; --wa: .07; }
+.poster__waves { position: absolute; left: 0; width: 100%; bottom: 0; height: 30%; z-index: 0; border-radius: 0 0 28px 28px; }
+.poster__waves path { fill: rgba(var(--wave), var(--wa)); }
+.poster__waves .w2 { fill: rgba(var(--wave), calc(var(--wa) * 1.6)); }
+.poster__waves .w3 { fill: rgba(var(--wave), calc(var(--wa) * 2.3)); }
+
+.poster__text {
+  position: relative; z-index: 2; margin: 0; text-align: center;
+  font-family: var(--f-display); font-weight: 400; text-transform: uppercase; line-height: .86;
+  font-size: clamp(3.4rem, 11.5vw, 13rem); letter-spacing: -.01em;
+}
+.pw { display: block; white-space: nowrap; will-change: transform; }
+.pw--sm { font-size: .55em; line-height: 1; }
+.swap { display: inline-block; position: relative; width: .78em; height: .78em; vertical-align: -.02em; margin: 0 .02em; }
+.swap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.swap--apple { width: .82em; height: .82em; }
+.swap--x { width: 1em; margin: 0 .06em; }
+.swap--x img { inset: auto; width: auto; height: 120%; top: -12%; left: 50%; translate: -50% 0; transform-origin: 50% 50%; }
+.poster__num { position: absolute; z-index: 2; left: 1.6rem; bottom: 1.3rem; display: flex; gap: .5rem; align-items: baseline; }
+.poster__num .serif { font-size: 1.1rem; }
+
+.fruit { position: absolute; z-index: 3; left: var(--x); top: var(--y); width: var(--w); rotate: var(--r, 0deg); scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.fruit--back { z-index: 1; }
+.sphere {
+  position: absolute; z-index: 2; left: var(--x); top: var(--y); width: var(--s); aspect-ratio: 1; border-radius: 50%;
+  box-shadow: 0 10px 14px -4px rgba(41,41,35,.25);
+}
+.sphere--pink   { background: radial-gradient(circle at 32% 28%, #fff 0 6%, var(--guava) 30%, #C9727A); }
+.sphere--yolk   { background: radial-gradient(circle at 32% 28%, #fff 0 6%, var(--yolk) 30%, #C99A1A); }
+.sphere--herb   { background: radial-gradient(circle at 32% 28%, #9fc3b2 0 6%, #3f7a62 30%, var(--herb)); }
+.sphere--guava  { background: radial-gradient(circle at 32% 28%, #fff 0 6%, var(--guava) 30%, #C9727A); }
+.sphere--cream  { background: radial-gradient(circle at 32% 28%, #fff 0 10%, var(--cream) 40%, #D9CDB2); }
+.sphere--chrome { background: radial-gradient(circle at 32% 28%, #fff 0 8%, #c9c9c9 30%, #6d6d6d 70%, #e8e8e8); }
+
+.pers__traveller { position: absolute; z-index: 5; width: clamp(110px, 13vw, 220px); left: 70%; top: 18%; pointer-events: none; }
+.pers__traveller img { width: 100%; scale: 1.5; /* shadow is baked into the image (1.5× canvas) */ }
+.sparkle {
+  position: absolute; left: var(--x); top: var(--y); width: 18%; aspect-ratio: 1; translate: -50% -50%;
+  background: #fff; clip-path: polygon(50% 0, 58% 42%, 100% 50%, 58% 58%, 50% 100%, 42% 58%, 0 50%, 42% 42%);
+  opacity: 0;
+}
+
+@media (max-width: 760px) {
+  .posters { inset: calc(var(--section-top) + 2rem) var(--gutter) 1rem; }
+  .poster { border-radius: 20px; }
+  .poster__waves { border-radius: 0 0 20px 20px; }
+  .poster__text { font-size: clamp(2.6rem, 15vw, 5rem); }
+  .fruit { width: calc(var(--w) * 1.8); }
+  .pers__traveller { width: 28vw; }
+}
+
+/* reduced motion: three posters, stacked, no pin */
+@media (prefers-reduced-motion: reduce) {
+  .pers__pin { height: auto; min-height: 0; padding: calc(var(--nav-h) + 3rem) 0 2rem; }
+  .posters { position: relative; inset: auto; padding: 0 var(--gutter); display: grid; gap: 2rem; }
+  .poster { position: relative; inset: auto; height: 80svh; min-height: 520px; }
+  .pers__traveller { top: 6%; left: 72%; }
+  .sparkle { opacity: .9; }
+  .x-fork { rotate: 38deg; } .x-knife { rotate: -38deg; }
+}
