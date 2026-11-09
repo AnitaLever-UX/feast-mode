@@ -82,5 +82,11 @@
 }
 @media (max-width: 760px) {
   .lab__title { font-size: clamp(2.2rem, 11vw, 3.4rem); }
+  /* keep the falling ingredients clear of the copy on phones */
+  .lab__oil { top: 58%; height: 16%; }
+  .lab__spice { inset: 56% 0 auto 0; height: 26%; }
+  .lab-ing { top: calc(var(--y) * .3 + 56%); }
+  .lab__flour { top: 58%; }
+  .lab__steam { top: 52%; }
   .lab__meter b { font-size: 1.5rem; }
 }
